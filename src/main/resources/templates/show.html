@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:fragment="head-source"></head>
+<body>
+
+
+<div class="container bg-light ">
+
+
+    <div class="my-5 "></div>
+
+    <div class="my-4 py-5" align="center">
+
+        <table>
+            <tr class="text-dark">
+                <th class="pr-3">Content</th>
+                <th class="pr-3">Posted By</th>
+                <th class="pr-3">Date</th>
+            </tr>
+            <tr>
+                <td class="pr-4" th:text="${message.content}"></td>
+                <td class="pr-3" th:text="${message.setBy}"></td>
+                <td class="pr-3" th:text="${message.datePosted}"></td>
+
+            </tr>
+        </table>
+        <br>
+
+        <button class="btn btn-primary"><a class="text-white" href="/add">Add a Message</a></button>
+
+    </div>
+</div>
+
+<!--Scripts for JS and Jquery-->
+<div th:replace="base :: scripts"></div>
+</body>
+</html>

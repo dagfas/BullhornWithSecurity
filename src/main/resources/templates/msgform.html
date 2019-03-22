@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+
+<head th:fragment="head-source"></head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="bg-light form">
+        <form action="#"
+              th:action="@{/process}"
+              th:object="${message}"
+              method="post">
+
+            <input type="hidden" th:field="*{id}"/>
+
+            Content :<textarea placeholder="Enter Message" rows="3" th:field="*{content}"/>
+            <span class="text-danger" th:if="${#fields.hasErrors('content')}"
+                  th:errors="*{content}"></span><br/>
+
+            Posted Date : <input type="date" th:field="*{datePosted}"/>
+            <span class="text-danger" th:if="${#fields.hasErrors('datePosted')}" th:errors="*{datePosted}"></span><br/>
+
+            Posted By: <input type="text" th:field="*{setBy}" placeholder="Enter Name"/>
+            <span class="text-danger" th:if="${#fields.hasErrors('setBy')}" th:errors="*{setBy}"></span><br/>
+
+
+            <input class="button" type="submit" value="Submit"/>
+        </form>
+
+        <a href="/logout">Logout</a>
+    </div>
+
+</div>
+<div th:replace="base :: scripts"></div>
+</body>
+</html>
